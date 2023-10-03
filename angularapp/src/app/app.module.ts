@@ -9,7 +9,7 @@ import { BusBookingFormComponent } from './bus-booking-form/bus-booking-form.com
   declarations: [AppComponent, BusBookingFormComponent],
   imports: [
     BrowserModule,
-    // ReactiveFormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: BusBookingFormComponent }, // Define your routes here
       // ... add more routes as needed

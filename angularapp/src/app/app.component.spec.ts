@@ -1,29 +1,28 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+  let fixture: ComponentFixture<AppComponent>;
 
-  it('should have as title Stylish Calculator App', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      schemas: [NO_ERRORS_SCHEMA] // Use NO_ERRORS_SCHEMA to suppress unknown element errors
+    });
+    fixture = TestBed.createComponent(AppComponent);
+  });
+
+  it(`should have as title 'Bus Booking App'`, () => {
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Stylish Calculator App');
+    expect(app.title).toEqual('Bus Booking App');
   });
 
-  it('should render the title in an h1 element', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('My Calculator App');
+  it('should render the app-bus-booking-form', () => {
+    const appElement: HTMLElement = fixture.nativeElement;
+    const appBusBookingForm = appElement.querySelector('app-bus-booking-form');
+    expect(appBusBookingForm).toBeTruthy();
   });
-
-  it('should contain a router outlet', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('router-outlet')).toBeTruthy();
-  });
-
 });
